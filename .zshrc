@@ -41,4 +41,4 @@ setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
