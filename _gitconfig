@@ -1,0 +1,12 @@
+[user]
+	name = You Kobayashi
+	email = sweep.3092@gmail.com
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+[color]
+	ui = auto
+[push]
+	default = matching
