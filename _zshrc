@@ -1,9 +1,12 @@
 # Created by newuser for 5.0.4
 alias ls='ls -G'
 alias ll='ls -l'
-export PATH=/usr/local/bin:$PATH
+alias '偽t'='git'
 
+# Homebrew
+export PATH=/usr/local/bin:$PATH
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
 
 autoload -U compinit
 compinit -u
@@ -40,5 +43,4 @@ function rprompt-git-current-branch {
 setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
-
-# eval "$(rbenv init -)"
+PROMPT='%F{green}%n@$%m%f%% '
