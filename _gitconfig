@@ -12,3 +12,4 @@
 	default = matching
 [core]
 	editor = vim
+	excludesfile = /Users/youk/.gitignore
