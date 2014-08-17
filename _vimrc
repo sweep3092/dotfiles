@@ -18,6 +18,7 @@ set autoindent
 set ts=4
 set expandtab
 set showmatch
+set smartindent
 
 "- View
 syntax on
