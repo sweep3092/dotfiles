@@ -19,6 +19,7 @@ set ts=4
 set expandtab
 set showmatch
 set smartindent
+set paste
 
 "- View
 syntax on
