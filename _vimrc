@@ -26,4 +26,5 @@ syntax on
 set number
 set wrap
 set laststatus=2
-set showcmd 
+set showcmd
+set t_Co=256
