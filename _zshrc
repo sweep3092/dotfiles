@@ -1,5 +1,5 @@
 # aliases
-alias ls='ls -G'
+alias ls='ls -G --color'
 alias ll='ls -l'
 alias '偽t'='git'
 alias be='bundle exec'
