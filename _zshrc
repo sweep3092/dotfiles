@@ -1,19 +1,23 @@
-# aliases
-alias ls='ls -G --color'
-alias ll='ls -l'
-alias '偽t'='git'
-alias be='bundle exec'
-
 # Only for Mac
 case ${OSTYPE} in
     darwin*)
+        alias ls='ls -G'
         # Homebrew
         export PATH=/usr/local/bin:$PATH
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         # Disable empty "rails"
         alias rails=/usr/local/bin/rails
         ;;
+    linux*)
+        alias ls='ls --color'
+        ;;
 esac
+
+
+# aliases
+alias ll='ls -l'
+alias '偽t'='git'
+alias be='bundle exec'
 
 # complement
 autoload -Uz compinit
