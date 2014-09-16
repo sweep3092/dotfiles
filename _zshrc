@@ -7,6 +7,9 @@ case ${OSTYPE} in
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         # Disable empty "rails"
         alias rails=/usr/local/bin/rails
+        # Go
+        export GOPATH=~/go
+        export PATH=$PATH:$GOPATH/bin
         ;;
     linux*)
         alias ls='ls --color'
@@ -84,3 +87,23 @@ RPROMPT='[`rprompt-git-current-branch`%~]'
 #   precmd () { vcs_info }
 #fi
 #RPROMPT='[${vcs_info_msg_0_} %~]'
+
+
+#######################################
+# peco hitory
+#######################################
+function peco-select-history() {
+    local tac
+    if which tac &gt; /dev/null; then
+        tac="tac";
+    else
+        tac="tail -r";
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
