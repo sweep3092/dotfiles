@@ -10,6 +10,7 @@ case ${OSTYPE} in
         # Go
         export GOPATH=~/go
         export PATH=$PATH:$GOPATH/bin
+        bindkey '^r' peco-select-history
         ;;
     linux*)
         alias ls='ls --color'
@@ -109,4 +110,3 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
