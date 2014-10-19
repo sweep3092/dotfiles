@@ -7,16 +7,17 @@ case ${OSTYPE} in
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         # Disable empty "rails"
         alias rails=/usr/local/bin/rails
-        # Go
-        export GOPATH=~/go
-        export PATH=$PATH:$GOPATH/bin
-        bindkey '^r' peco-select-history
         ;;
     linux*)
         alias ls='ls --color'
         ;;
 esac
 
+# Go
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+bindkey '^r' peco-select-history
+    
 
 # aliases
 alias ll='ls -l'
