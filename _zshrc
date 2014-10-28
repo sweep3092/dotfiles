@@ -31,7 +31,7 @@ compinit -u
 setopt AUTO_LIST
 setopt NO_LIST_BEEP
 
-setopt CORRECT
+# setopt CORRECT
 setopt PROMPT_SUBST
 setopt AUTOCD
 setopt INTERACTIVE_COMMENTS
