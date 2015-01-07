@@ -12,6 +12,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'rhysd/committia.vim'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'haya14busa/incsearch.vim'
+
 
 call neobundle#end()
 
@@ -19,7 +23,6 @@ call neobundle#end()
 filetype plugin indent on
 
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
 
 let g:committia_hooks = {}
@@ -32,6 +35,9 @@ function! g:committia_hooks.edit_open(info)
   nmap <buffer><C-u> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 "-------------------------
 " End Neobundle Settings.
@@ -64,6 +70,7 @@ set paste
 
 "- View
 syntax on
+syntax enable
 set number
 set wrap
 set laststatus=2
