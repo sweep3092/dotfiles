@@ -12,10 +12,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'rhysd/committia.vim'
-NeoBundle 'kana/vim-smartinput'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'haya14busa/incsearch.vim'
-
+NeoBundle 'altercation/vim-colors-solarized' 
 
 call neobundle#end()
 
@@ -38,6 +37,13 @@ endfunction
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+set background=dark
+colorscheme solarized
 
 "-------------------------
 " End Neobundle Settings.

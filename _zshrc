@@ -7,6 +7,7 @@ case ${OSTYPE} in
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         # Disable empty "rails"
         alias rails=/usr/local/bin/rails
+        #alias vim=/usr/local/bin/vim
         ;;
     linux*)
         alias ls='ls --color'
