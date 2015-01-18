@@ -64,15 +64,14 @@ set nobackup
 set writebackup
 
 "-- Editor behavior
-set autoindent
-set ts=2
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set expandtab
-set showmatch
 set smartindent
-set paste
+set autoindent
+set showmatch
+"set paste
 
 "- View
 syntax on
