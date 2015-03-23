@@ -9,7 +9,9 @@
 [color]
 	ui = auto
 [push]
-	default = matching
+	default = simple
 [core]
 	editor = vim
 	excludesfile = /Users/youk/.gitignore
+[url "https://"]
+	insteadof = git://
