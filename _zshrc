@@ -5,8 +5,10 @@ case ${OSTYPE} in
         # Homebrew
         export PATH=/usr/local/bin:$PATH
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+        fpath=($(brew --prefix)/share/zsh-completions $fpath)
         # Disable empty "rails"
         alias rails=/usr/local/bin/rails
+        #alias vim=/usr/local/bin/vim
         ;;
     linux*)
         alias ls='ls --color'

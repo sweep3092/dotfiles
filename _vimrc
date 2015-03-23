@@ -12,10 +12,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'rhysd/committia.vim'
-NeoBundle 'kana/vim-smartinput'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'haya14busa/incsearch.vim'
-
+NeoBundle 'altercation/vim-colors-solarized' 
 
 call neobundle#end()
 
@@ -39,6 +38,13 @@ map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+set background=dark
+colorscheme solarized
+
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
@@ -58,15 +64,14 @@ set nobackup
 set writebackup
 
 "-- Editor behavior
-set autoindent
-set ts=2
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set expandtab
-set showmatch
 set smartindent
-set paste
+set autoindent
+set showmatch
+"set paste
 
 "- View
 syntax on
