@@ -6,13 +6,14 @@
 	ci = commit
 	br = branch
 	co = checkout
+  ps = push
 [color]
 	ui = auto
 [push]
 	default = simple
 [core]
 	editor = vim
-	excludesfile = /Users/youk/.gitignore
+	excludesfile = ~/.gitignore
 [url "https://"]
 	insteadof = git://
 [filter "media"]
