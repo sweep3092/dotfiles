@@ -15,6 +15,7 @@ NeoBundle 'rhysd/committia.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'altercation/vim-colors-solarized' 
+NeoBundle 'Shougo/neocomplete.vim'
 
 call neobundle#end()
 
@@ -44,6 +45,17 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 set background=dark
 colorscheme solarized
+
+
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
 
 "-------------------------
 " End Neobundle Settings.
