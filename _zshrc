@@ -2,6 +2,7 @@
 case ${OSTYPE} in
     darwin*)
         alias ls='ls -G'
+        alias dev="~/Development"
         # Homebrew
         export PATH="/usr/local/bin:$PATH"
         export PATH="/usr/local/sbin:$PATH"
