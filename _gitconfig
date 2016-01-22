@@ -7,6 +7,7 @@
 	br = branch
 	co = checkout
   ps = push
+  pl = pull
 [color]
 	ui = auto
 [push]
