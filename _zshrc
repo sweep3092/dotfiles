@@ -94,22 +94,8 @@ prompt_exit_status="%(?.%F{green}%?%f.%F{red}%?%f)"
 PROMPT='[%F{green}%n@%m%f]%% '
 RPROMPT='(${prompt_exit_status})[`rprompt-git-current-branch`%~]'
 
-#autoload -Uz is-at-least
-#autoload -Uz vcs_info
-#if is-at-least 4.3.10; then
-#   zstyle ':vcs_info:git:*' check-for-changes true
-#   zstyle ':vcs_info:git:*' stagedstr "%F{yellow}(s)"
-#   zstyle ':vcs_info:git:*' unstagedstr "%F{red}(u)"
-#   zstyle ':vcs_info:*' formats "%F{green}%c%u%b%f"
-#   zstyle ':vcs_info:*' actionformats '%b|%a'
-#   precmd () { vcs_info }
-#fi
-#RPROMPT='[${vcs_info_msg_0_} %~]'
 
-
-#######################################
 # peco hitory
-#######################################
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -124,3 +110,15 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
+
+# peco-ghq
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^g' peco-src
