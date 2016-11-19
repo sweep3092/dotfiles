@@ -9,5 +9,5 @@ ln -s dotfiles/_vimrc .vimrc
 
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-go get github.com/lestrrat/peco/cmd/peco/
+go get github.com/peco/peco/cmd/peco/
 go get github.com/motemen/ghq
