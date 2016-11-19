@@ -43,8 +43,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 
 let g:acp_enableAtStartup = 0

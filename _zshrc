@@ -14,6 +14,7 @@ esac
 
 # Go
 export GOPATH=~/go
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 bindkey '^r' peco-select-history
 
@@ -25,8 +26,9 @@ alias ll='ls -l'
 alias '偽t'='git'
 alias be='bundle exec'
 
-alias sideci_up='cd ~/Development/github.com/actcat/sideci && PORT=3000 bundle exec foreman start'
-alias sideci_node_up='cd ~/Development/github.com/actcat/sideci_node && PORT=3006 bundle exec foreman start'
+alias sideci_up='cd ~/Development/github.com/sideci/sideci && PORT=3000 bundle exec foreman start'
+alias sideci_node_up='cd ~/Development/github.com/sideci/node && PORT=3006 bundle exec foreman start'
+alias sideci_kanban_up='cd ~/Development/github.com/sideci/quality_gate && PORT=3007 bundle exec foreman start'
 
 # complement
 autoload -Uz compinit
