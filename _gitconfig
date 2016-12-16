@@ -8,6 +8,7 @@
 	co = checkout
   ps = push
   pl = pull
+  psu = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
 [color]
 	ui = auto
 [push]
