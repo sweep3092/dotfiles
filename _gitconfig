@@ -1,5 +1,5 @@
 [user]
-	name = You Kobayashi
+	name = Yu Kobayashi
 	email = sweep.3092@gmail.com
 [alias]
 	st = status
@@ -24,3 +24,5 @@
   required = true
 [ghq]
   root = ~/Development
+[grep]
+	lineNumber = true

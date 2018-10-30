@@ -16,6 +16,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'altercation/vim-colors-solarized' 
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 
@@ -93,3 +94,5 @@ set wrap
 set laststatus=2
 set showcmd
 set t_Co=256
+set cursorline
+set cursorcolumn

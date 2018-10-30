@@ -1,3 +1,7 @@
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   zcompile ~/.zshrc
+ fi 
+
 # Only for Mac
 case ${OSTYPE} in
     darwin*)
@@ -21,9 +25,18 @@ bindkey '^r' peco-select-history
 # rbenv
 eval "$(rbenv init -)"
 
+# pyenv
+eval "$(pyenv init -)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# asdf
+. $HOME/.asdf/asdf.sh
+
 # aliases
 alias ll='ls -l'
-alias '偽t'='git'
 alias be='bundle exec'
 
 # complement
@@ -80,7 +93,11 @@ function rprompt-git-current-branch {
 }
 
 prompt_exit_status="%(?.%F{green}%?%f.%F{red}%?%f)"
-PROMPT='[%F{green}%n@%m%f]%% '
+if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] ; then
+  PROMPT='[%F{red}%n@%m%f]%% '
+else
+  PROMPT='[%F{green}%n@%m%f]%% '
+fi
 RPROMPT='(${prompt_exit_status})[`rprompt-git-current-branch`%~]'
 
 
@@ -111,3 +128,4 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^g' peco-src
+
