@@ -34,7 +34,8 @@ eval "$(rbenv init -)"
 #. "/usr/local/opt/nvm/nvm.sh"
 
 # asdf
-. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 
 # aliases
 alias ll='ls -l'
