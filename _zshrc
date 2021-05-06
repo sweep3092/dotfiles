@@ -24,6 +24,7 @@ export GO111MODULE=on
 bindkey '^r' peco-select-history
 
 # rbenv
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 eval "$(rbenv init -)"
 
 # pyenv
@@ -31,11 +32,14 @@ eval "$(rbenv init -)"
 
 # nvm
 #export NVM_DIR="$HOME/.nvm"
-#. "/usr/local/opt/nvm/nvm.sh"
+#. "$(brew --prefix nvm)/nvm.sh"
 
 # asdf
 #. $HOME/.asdf/asdf.sh
-. $(brew --prefix asdf)/asdf.sh
+#. $(brew --prefix asdf)/asdf.sh
+
+# heroku
+#HEROKU_AC_ZSH_SETUP_PATH=/Users/yu.kobayashi/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 # aliases
 alias ll='ls -l'
