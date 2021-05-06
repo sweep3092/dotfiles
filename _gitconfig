@@ -24,6 +24,9 @@
   required = true
 [ghq]
   root = ~/Development
-  root = ~/.go/src
 [grep]
 	lineNumber = true
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
