@@ -7,7 +7,7 @@ case ${OSTYPE} in
     darwin*)
         alias ls='ls -G'
         export PATH="/usr/local/sbin:$PATH"        
-        # Homebrew
+        # homebrew
         fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
         fpath=($(brew --prefix)/share/zsh-completions $fpath)
         ;;
@@ -16,29 +16,14 @@ case ${OSTYPE} in
         ;;
 esac
 
-# Go
-export GOPATH=~/.go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
-export GO111MODULE=on
-bindkey '^r' peco-select-history
-
-# rbenv
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-eval "$(rbenv init -)"
-
-# pyenv
-#eval "$(pyenv init -)"
-
-# nodenv
-eval "$(nodenv init -)"
+# flutter
+export PATH=$PATH:~/Development/flutter/bin
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0
 
 # asdf
 #. $HOME/.asdf/asdf.sh
 #. $(brew --prefix asdf)/asdf.sh
-
-# heroku
-#HEROKU_AC_ZSH_SETUP_PATH=/Users/yu.kobayashi/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 # aliases
 alias ll='ls -l'
@@ -68,44 +53,6 @@ setopt APPEND_HISTORY
 
 autoload -Uz colors; colors
 
-# prompts
-# faster than using "vcs_info"
-function rprompt-git-current-branch {
-    local name st color
-
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    #name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-    name=`git symbolic-ref HEAD 2>/dev/null | sed -E 's!refs/heads/!!'`
-
-    if [[ -z $name ]]; then
-        return
-    fi
-
-    st=`git status 2> /dev/null`
-    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-        color=${fg[green]}
-    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-        color=${fg[yellow]}
-    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-        color=${fg_bold[red]}
-    else
-        color=${fg[red]}
-    fi
-
-    echo "%{$color%}$name%{$reset_color%} "
-}
-
-prompt_exit_status="%(?.%F{green}%?%f.%F{red}%?%f)"
-if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] ; then
-  PROMPT='[%F{red}%n@%m%f]%% '
-else
-  PROMPT='[%F{green}%n@%m%f]%% '
-fi
-RPROMPT='(${prompt_exit_status})[`rprompt-git-current-branch`%~]'
-
-
 # peco hitory
 function peco-select-history() {
     local tac
@@ -121,6 +68,7 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
+bindkey '^r' peco-select-history
 
 # peco-ghq
 function peco-src () {
@@ -133,4 +81,7 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^g' peco-src
+
+# starship
+eval "$(starship init zsh)"
 
