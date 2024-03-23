@@ -13,18 +13,22 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 case ${OSTYPE} in
-    darwin*)
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        brew tap homebrew/cask-fonts
+  darwin*)
+    xcode-select --install
 
-        brew install git vim tig zsh ghq peco zsh-completions
-        brew install --cask docker iterm2 vlc zoom visual-studio-code notion google-chrome slack figma 1password google-japanese-ime
-        brew install font-hack-nerd-font
+    sudo softwareupdate --install-rosetta --agree-to-license
+    
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew tap homebrew/cask-fonts
 
-        chsh -s /usr/local/bin/zsh
-        ;;
-    linux*)
-        alias ls='ls --color'
-        ;;
+    brew install git vim tig zsh ghq peco zsh-completions
+    brew install --cask docker iterm2 vlc zoom visual-studio-code notion google-chrome slack figma 1password google-japanese-ime flutter android-studio
+    brew install font-hack-nerd-font
+
+    chsh -s /usr/local/bin/zsh
+    ;;
+  linux*)
+    alias ls='ls --color'
+    ;;
 esac
 
