@@ -4,26 +4,29 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
 
 # Only for Mac
 case ${OSTYPE} in
-    darwin*)
-        alias ls='ls -G'
-        export PATH="/usr/local/sbin:$PATH"        
-        # homebrew
-        fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-        fpath=($(brew --prefix)/share/zsh-completions $fpath)
-        ;;
-    linux*)
-        alias ls='ls --color'
-        ;;
+  darwin*)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    alias ls='ls -G'
+    export PATH="/usr/local/sbin:$PATH"        
+    # homebrew
+    fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+    fpath=($(brew --prefix)/share/zsh-completions $fpath)
+    ;;
+  linux*)
+    alias ls='ls --color'
+    ;;
 esac
 
 # flutter
 export PATH=$PATH:~/Development/flutter/bin
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # asdf
 #. $HOME/.asdf/asdf.sh
-#. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
+
 
 # aliases
 alias ll='ls -l'
