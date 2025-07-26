@@ -19,11 +19,8 @@ case ${OSTYPE} in
     sudo softwareupdate --install-rosetta --agree-to-license
     
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew tap homebrew/cask-fonts
-
-    brew install git vim tig zsh ghq peco starship zsh-completions
-    brew install --cask orbstack iterm2 vlc zoom visual-studio-code cursor handbrake google-chrome slack figma 1password google-japanese-ime flutter android-studio
-    brew install font-hack-nerd-font
+    
+    brew bundle --file=~/dotfiles/Brewfile
 
     chsh -s /usr/local/bin/zsh
     ;;
