@@ -25,8 +25,19 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # asdf
 #. $HOME/.asdf/asdf.sh
-. $(brew --prefix asdf)/libexec/asdf.sh
+# export ASDF_DATA_DIR="$(brew --prefix asdf)"
+# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# mise
+eval "$(mise activate zsh)"
+
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# . $(brew --prefix asdf)/libexec/asdf.sh
+
+
+# JDK
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # aliases
 alias ll='ls -l'
@@ -88,3 +99,10 @@ bindkey '^g' peco-src
 # starship
 eval "$(starship init zsh)"
 
+
+# bun completions
+[ -s "/Users/yu.kobayashi/.bun/_bun" ] && source "/Users/yu.kobayashi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
